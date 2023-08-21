@@ -799,11 +799,11 @@ def get_available_credit(customer, company):
 
 
 @frappe.whitelist()
-def get_draft_invoices(pos_opening_shift):
+def get_draft_invoices(pos_profile):
     invoices_list = frappe.get_list(
         "Sales Invoice",
         filters={
-            "posa_pos_opening_shift": pos_opening_shift,
+            "pos_profile": pos_profile,
             "docstatus": 0,
             "posa_is_printed": 0,
         },
